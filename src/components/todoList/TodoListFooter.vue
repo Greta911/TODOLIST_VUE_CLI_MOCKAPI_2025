@@ -1,6 +1,6 @@
 <script setup>
 const props = defineProps ({
-  notCompletedCount: {type: Number, required: true},
+  notCompletedCount: { type: Object, required: true },
 });
 </script>
 <template>
