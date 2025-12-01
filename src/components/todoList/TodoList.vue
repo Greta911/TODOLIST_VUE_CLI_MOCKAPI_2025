@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, onMounted } from "vue";
+import { reactive, onMounted, computed } from "vue";
 import DB from "@/services/DB";
 import TodoListAddForm from "./TodoListAddForm.vue";
 import TodoListFooter from "./TodoListFooter.vue";
@@ -33,6 +33,10 @@ const deleteOneById = async (id) => {
     1
   );
 };
+
+
+const notCompletedCount = computed(() => todos.filter((todo) =>!todo.completed).lenght);
+
 </script>
 
 <template>
@@ -62,7 +66,7 @@ const deleteOneById = async (id) => {
     </ul>
 
     <!-- FOOTER DE LISTE -->
-    <TodoListFooter />
+    <TodoListFooter :notCompletedCount="notCompletedCount"/>
   </section>
 </template>
 <style scoped></style>
